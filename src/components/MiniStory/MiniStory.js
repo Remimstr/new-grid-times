@@ -17,9 +17,9 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 220px;
   
   @media ${QUERIES.tabletAndUp} {
+    max-width: 220px;
     min-width: 220px;
   }
 `;
