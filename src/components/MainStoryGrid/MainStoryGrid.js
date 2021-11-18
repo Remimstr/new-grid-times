@@ -12,6 +12,7 @@ import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+import {QUERIES} from "../../constants";
 
 const MainStoryGrid = () => {
   return (
@@ -23,18 +24,22 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <StoryWrapper>
+              <SecondaryStory key={story.id} {...story} />
+            </StoryWrapper>
           ))}
         </StoryList>
       </SecondaryStorySection>
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <OpinionStoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <OpinionStoryWrapper>
+              <OpinionStory key={story.id} {...story} />
+            </OpinionStoryWrapper>
           ))}
-        </StoryList>
+        </OpinionStoryList>
       </OpinionSection>
 
       <AdvertisementSection>
@@ -53,7 +58,27 @@ const Wrapper = styled.div`
     'advertisement';
   gap: 48px;
   margin-bottom: 48px;
+  
+  --item-padding: 16px;
 `;
+
+const StoryWrapper = styled.div`
+  flex: 1;
+  
+  :not(:last-of-type) {
+    padding-bottom: var(--item-padding);
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+`
+
+const OpinionStoryWrapper = styled(StoryWrapper)`
+  :not(:last-of-type) {
+    @media ${QUERIES.tabletOnly} {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+`
 
 const MainStorySection = styled.section`
   grid-area: main-story;
@@ -66,6 +91,15 @@ const SecondaryStorySection = styled.section`
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+  gap: var(--item-padding);
+
+  margin-bottom: calc(-1 * var(--item-padding));
+`
+
+const OpinionStoryList = styled(StoryList)`
+  @media ${QUERIES.tabletOnly} {
+    flex-direction: row;
+  }
 `;
 
 const OpinionSection = styled.section`
