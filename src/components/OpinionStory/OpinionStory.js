@@ -19,12 +19,13 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 const Wrapper = styled.article`
   color: var(--color-gray-900);
   display: flex;
-  gap: 8px;
+  gap: 16px;
   flex-direction: row-reverse;
   justify-content: space-between;
   background-color: var(--color-gray-100);
   
   @media ${QUERIES.tabletOnly} {
+    gap: 8px;
     flex-direction: column;
   }
 `;

@@ -61,7 +61,7 @@ const Header = () => {
 };
 
 const MobileHeader = styled.header`
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: none;
   }
 `;
@@ -69,7 +69,7 @@ const MobileHeader = styled.header`
 const DesktopHeader = styled.header`
   display: none;
   
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: revert;
   }
 `
@@ -85,7 +85,7 @@ const Row = styled(MaxWidthWrapper)`
   justify-content: space-between;
   align-items: baseline;
   
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     justify-content: revert;
   }
 `;
@@ -122,7 +122,7 @@ const MainHeader = styled(MaxWidthWrapper)`
     margin-bottom: 72px;
   }
   
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     margin-right: auto;
     margin-left: auto;
   }
@@ -131,6 +131,7 @@ const MainHeader = styled(MaxWidthWrapper)`
 const Link = styled.a`
   text-decoration: underline;
   font-style: italic;
+  color: var(--color-gray-900);
 `;
 
 export default Header;

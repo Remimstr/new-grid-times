@@ -19,7 +19,7 @@ const MainStory = ({
       <Abstract>
         <Location>{location}</Location> — {abstract}
       </Abstract>
-      <ReadMore href="/story">Continue Reading…</ReadMore>
+      <ReadMore href="/story">Continue Reading</ReadMore>
     </Wrapper>
   );
 };
@@ -50,7 +50,7 @@ const Abstract = styled.p`
   overflow: hidden;
   -webkit-line-clamp: 8;
   
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.tabletOnly} {
     -webkit-line-clamp: 16;
   }
 `;
